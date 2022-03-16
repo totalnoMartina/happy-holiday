@@ -34,7 +34,7 @@
     <title>Holiday Home {% block extra_title %}{% endblock %}</title>
 </head>
 
-<header class="container-fluid fixed-top"></header>
+<header class="container-fluid"></header>
 {% if messages %}
 <div class="message-container"></div>
 {% endif %}
@@ -42,13 +42,35 @@
 {% block page_header %}
 {% endblock %}
 
-{% block content %}
-{% endblock %}
+
 
 {% block postloadjs %}
 {% endblock %}
+<nav class="navbar navbar-dark sticky-top" style="background-color: #1b72b1; color: aqua; opacity: 70%;">
+    <a class="navbar-brand font-weight-bold" href="{% url 'home' %}" style="width: fit-content;">Welcome to Your Holiday</a>
+    <button class="navbar-toggler shadow p-2 mb-2" style="border-radius: 20%; outline: none;" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav hover-overlay">
+            <a class="nav-item nav-link" href="{% url 'home' %}">Holiday Home - About<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="">Apartments</a>
+            <a class="nav-item nav-link" href="">Contact Us</a>
+        </div>
+    </div>
+</nav>
 
 <body>
+    {% block content %}
+    {% endblock %}
+    <footer class="w-75 p-2 mt-4 container-fluid rounded-top fixed-bottom" style="background-color: #052f4d; opacity: 70%; color: whitesmoke;"><strong>Owners : Jasna & Zdravko Grganic, Klanfari 33, 51265 Dramalj, Crikvenica Phone Number: +385 51 xxx-xxx</strong></footer>
+
+
+    {% load cloudinary %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    {% cloudinary_includes %}
+    {% cloudinary_js_config %}
+
 
 </body>
 

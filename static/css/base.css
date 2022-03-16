@@ -3,3 +3,7 @@ body {
     background-size: cover;
 
 }
+
+.blue {
+    background-color: rgba(14, 14, 119, 0.4);
+}

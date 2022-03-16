@@ -2,5 +2,38 @@
 {% load static %}
 
 {% block content %}
-<h1 class="display-4 text-success">It Works!</h1>
+
+<div class="container h-100">
+    <div class="row h-100">
+
+        <div class="col-sm mt-3 text-white">
+            <h1 class="display-4 logo-font text-white">Welcome to Your Holiday</h1>
+            <p>More about Klanfari and location</p>
+        </div>
+        <div class="col-sm mt-3">
+            <div id='map' style=" width: 400px; height: 400px; margin-bottom: 60px;"></div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <script type='text/javascript'>
+                function initMap() {
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                        center: {
+                            lat: 45.21028,
+                            lng: 14.65417
+                        },
+                        zoom: 10
+                    });
+                }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCB2euvdjQ0MmClCHx99xueO2QOFStgtKA&callback=initMap" async defer></script>
+        </div>
+
+        <div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
 {% endblock %}
