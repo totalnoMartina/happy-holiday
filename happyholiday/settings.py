@@ -50,10 +50,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     #    'allauth.socialaccount.providers.google',
 
-
-
     'cloudinary',
     'holidayapp',
+    'django_google_maps',
 ]
 
 SITE_ID = 1

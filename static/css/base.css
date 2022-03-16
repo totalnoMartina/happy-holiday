@@ -5,6 +5,13 @@ body {
     font-family: 'Lato';
 }
 
+.btn-yellow:hover,
+.btn-yellow:active,
+.btn-yellow:focus {
+    background: rgba(219, 84, 6, 0.726);
+    border-radius: 25%;
+}
+
 
 /* -------------------------------- Media Queries */
 
