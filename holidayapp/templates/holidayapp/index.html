@@ -1,8 +1,16 @@
 {% extends "base.html"  %}
 {% load static %}
 
-{% block content %}
+{% block page_header %}
 
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
 <div class="container h-100">
     <div class="row h-100">
 
@@ -10,8 +18,8 @@
             <h1 class="display-4 logo-font text-white">Welcome to Your Holiday</h1>
             <p>More about Klanfari and location</p>
         </div>
-        <div class="col-sm mt-3">
-            <div id='map' style=" width: 400px; height: 400px; margin-bottom: 60px;"></div>
+        <div class="col-sm my-3">
+            <div id='map' style=" width: 380px; height: 380px;"></div>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
             <script type='text/javascript'>
                 function initMap() {
@@ -20,7 +28,7 @@
                             lat: 45.21028,
                             lng: 14.65417
                         },
-                        zoom: 10
+                        zoom: 13
                     });
                 }
             </script>
