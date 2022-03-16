@@ -34,7 +34,9 @@
     <title>Holiday Home {% block extra_title %}{% endblock %}</title>
 </head>
 
-<header class="container-fluid"></header>
+<header class="container-fluid">
+</header>
+
 {% if messages %}
 <div class="message-container"></div>
 {% endif %}
@@ -48,7 +50,7 @@
 {% endblock %}
 <nav class="navbar navbar-dark fixed-top" style="background-color: #053150; color: aqua; opacity: 70%;">
     <a class="navbar-brand font-weight-bold" href="{% url 'home' %}" style="width: fit-content;">Welcome to Your Holiday</a>
-    <button class="navbar-toggler shadow p-2 mb-2" style="border-radius: 20%; outline: none;" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler shadow p-2 mb-1" style="border-radius: 20%; outline: none;" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -56,13 +58,43 @@
             <a class="nav-item nav-link" href="{% url 'home' %}">Holiday Home - About<span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="">Apartments</a>
             <a class="nav-item nav-link" href="">Contact Us</a>
+            <ul class="list-inline list-unstyled text-lg-left my-1">
+                <li class="list-inline-item dropdown">
+                    <a class="nav-item nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="left">
+                            <div><i class="fas fa-user fa-lg"></i></div>
+                            <p class="">My Account</p>
+                        </div>
+                    </a>
+
+                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <a href="" class="dropdown-item">Product Management</a>
+                        {% endif %}
+                        <a href="" class="dropdown-item">My Profile</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        {% endif %}
+                    </div>
+                </li>
+                <li class="list-inline-item">
+
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
 
-<body>
+<body class="mt-2">
     {% block content %}
     {% endblock %}
+
+
+
+
     <footer class="w-75 p-2 mt-4 container-fluid rounded-top fixed-bottom" style="background-color: #052f4d; opacity: 70%; color: whitesmoke;"><strong>Owners : Jasna & Zdravko Grganic, Klanfari 33, 51265 Dramalj, Crikvenica Phone Number: +385 51 xxx-xxx</strong></footer>
 
 
